@@ -3,7 +3,76 @@
 @import "neat/neat";
 @import "sassyseeds/sassyseeds";
 
+@import url(http://fonts.googleapis.com/css?family=Oxygen:400,700);
 
-div.container {
+section {
   @include outer-container;
+  font-family: 'Oxygen', sans-serif;
 }
+
+section.header {
+
+  background: #d4d4d4 url("../images/background.png");
+  border-bottom: 2px solid rgb(177, 173, 173);
+
+  div.logo {
+    @include media($tablet) {
+      @include span-columns(3);
+      @include shift(1);
+      img { padding: 4%; }
+    }
+
+    @include media($desktop) {
+      @include span-columns(2);
+    }
+  }
+
+  div.info {
+    color: #2E3092;
+    @include media($tablet) {
+      @include span-columns(3);
+      @include shift(1);
+      font-size: 15px;
+      line-height: 18px;
+      font-weight: 700;
+      text-align: center;
+      padding:0% 0% 4%;
+    }
+
+    @include media($desktop) {
+      @include span-columns(1);
+    }
+  }
+}
+
+img{
+  max-width: 100%;
+}
+
+a, a:visited {
+  color: #F7B625;
+}
+
+section.nav {
+  color: #F7B625;
+  font-size: 18px;
+  line-height: 18px;
+  font-weight: 400;
+  text-align: center;
+
+  padding: 6%;
+}
+
+section.content {
+  @include media($tablet) {
+    @include omega;
+    @include fill-parent;
+  }
+
+  color: #2E3092;
+  font-size: 15px;
+  line-height: 18px;
+  font-weight: 700;
+  text-align: center;
+}
+
