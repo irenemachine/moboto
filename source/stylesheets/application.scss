@@ -1,105 +1,57 @@
 @import "bourbon/bourbon";
 @import "grid-settings";
 @import "neat/neat";
-@import "sassyseeds/sassyseeds";
+//@import "sassyseeds/sassyseeds";
 
 @import url(//fonts.googleapis.com/css?family=Oxygen:400,700);
-@import url(//fonts.googleapis.com/css?family=Amatic+SC:400,700);
 @import url(//fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic|Amatic+SC:400,700);
 
-header {
-  background-color: #d4d4d4;
-  border-bottom: em(2) solid rgb(177, 173, 173);
-}
+body.index {
 
-body {
   font-family: 'Oxygen', sans-serif;
-}
 
-section {
-  @include outer-container;
-}
+  a, a:visited {
+    color: #F7B625;
+  }
 
-div.wide_img {
-  min-height: em(500);
-  background: url("../images/bikes.jpg");
-  background-repeat: no-repeat;
-  background-position: top center;
-  background-size: cover;
-}
+  header {
+    background-color: #d4d4d4;
+    border-bottom: em(2) solid rgb(177, 173, 173);
 
-section.header {
-
-  div.logo {
-
-    img { 
+    .logo img {
       padding: em(15) 0 em(15) em(15);
-    }
-    @include media($tablet) {
-      @include span-columns(5);
-      img { 
-        width: em(300);
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-      }
+      width: em(300);
     }
 
-    @include media($desktop) {
-      @include span-columns(2);
-
-      img { 
-        width: em(300);
-        display: inline;
-      }
+    .info {
+      color: #2E3092;
+      font-size: em(15);
+      line-height: em(20);
+      font-weight: 700;
     }
   }
 
-  div.info {
-    color: #2E3092;
-    font-size: em(15);
-    line-height: em(20);
-    font-weight: 700;
-
-    @include media($tablet) {
-      @include span-columns(3);
-      @include shift(1);
-      text-align: center;
-      padding: 0 0 em(15) 0;
-    }
-
-    @include media($desktop) {
-      @include span-columns(1);
-      text-align: right;
-      padding: em(30) em(15) 0 0;
-    }
-  }
-}
-
-a, a:visited {
-  color: #F7B625;
-}
-
-section.nav {
-  font-family: 'Josefin Slab', serif;
-  color: rgb(189, 139, 19);
-  font-size: em(20);
-  line-height: em(35);
-  font-weight: 600;
-  text-align: center;
-  padding: em(10);
-  @include media($desktop) {
-    font-size: em(30);
-  }
-}
-
-section.content {
-  @include media($tablet) {
-    @include omega;
-    @include fill-parent;
+  div.wide_img {
+    min-height: em(350);
+    background: url("../images/bikes.jpg");
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
   }
 
-  div.quote {
+  section { @include outer-container; }
+
+  section.nav {
+    font-family: 'Josefin Slab', serif;
+    color: rgb(189, 139, 19);
+    line-height: em(35);
+    font-weight: 600;
+    text-align: center;
+    padding: em(10);
+  }
+
+  section.content .quote {
+
     padding: em(9) 0 em(9) 0;
     color: #2E3092;
     font-size: em(25);
@@ -109,4 +61,50 @@ section.content {
     border-bottom: em(1) solid rgb(177, 173, 173);
   }
 }
+
+
+@include media($tablet) {
+
+  section.header {
+
+    div.logo{
+      @include span-columns(5);
+      img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+
+    div.info {
+      @include span-columns(3);
+      @include shift(1);
+      text-align: center;
+      padding: 0 0 em(15) 0;
+    }
+
+    section.nav { font-size: em(10); }
+
+  }
+}
+
+@include media($desktop) {
+  section.header {
+
+    div.logo{
+      @include span-columns(2);
+      img { display: inline; }
+    }
+
+    div.info {
+      @include span-columns(1);
+      text-align: right;
+      padding: em(30) em(15) 0 0;
+    }
+
+  }
+
+  section.nav { font-size: em(25); }
+}
+
 
