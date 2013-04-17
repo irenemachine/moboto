@@ -3,50 +3,77 @@
 @import "neat/neat";
 @import "sassyseeds/sassyseeds";
 
-@import url(http://fonts.googleapis.com/css?family=Oxygen:400,700);
+@import url(//fonts.googleapis.com/css?family=Oxygen:400,700);
+@import url(//fonts.googleapis.com/css?family=Amatic+SC:400,700);
+@import url(//fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic|Amatic+SC:400,700);
+
+header {
+  background-color: #d4d4d4;
+  border-bottom: em(2) solid rgb(177, 173, 173);
+}
+
+body {
+  font-family: 'Oxygen', sans-serif;
+}
 
 section {
   @include outer-container;
-  font-family: 'Oxygen', sans-serif;
+}
+
+div.wide_img {
+  min-height: em(500);
+  background: url("../images/bikes.jpg");
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
 }
 
 section.header {
 
-  background: #d4d4d4 url("../images/background.png");
-  border-bottom: 2px solid rgb(177, 173, 173);
-
   div.logo {
+
+    img { 
+      padding: em(15) 0 em(15) em(15);
+    }
     @include media($tablet) {
-      @include span-columns(3);
-      @include shift(1);
-      img { padding: 4%; }
+      @include span-columns(5);
+      img { 
+        width: em(300);
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
     }
 
     @include media($desktop) {
       @include span-columns(2);
+
+      img { 
+        width: em(300);
+        display: inline;
+      }
     }
   }
 
   div.info {
     color: #2E3092;
+    font-size: em(15);
+    line-height: em(20);
+    font-weight: 700;
+
     @include media($tablet) {
       @include span-columns(3);
       @include shift(1);
-      font-size: 15px;
-      line-height: 18px;
-      font-weight: 700;
       text-align: center;
-      padding:0% 0% 4%;
+      padding: 0 0 em(15) 0;
     }
 
     @include media($desktop) {
       @include span-columns(1);
+      text-align: right;
+      padding: em(30) em(15) 0 0;
     }
   }
-}
-
-img{
-  max-width: 100%;
 }
 
 a, a:visited {
@@ -54,13 +81,16 @@ a, a:visited {
 }
 
 section.nav {
-  color: #F7B625;
-  font-size: 18px;
-  line-height: 18px;
-  font-weight: 400;
+  font-family: 'Josefin Slab', serif;
+  color: rgb(189, 139, 19);
+  font-size: em(20);
+  line-height: em(35);
+  font-weight: 600;
   text-align: center;
-
-  padding: 6%;
+  padding: em(10);
+  @include media($desktop) {
+    font-size: em(30);
+  }
 }
 
 section.content {
@@ -69,10 +99,14 @@ section.content {
     @include fill-parent;
   }
 
-  color: #2E3092;
-  font-size: 15px;
-  line-height: 18px;
-  font-weight: 700;
-  text-align: center;
+  div.quote {
+    padding: em(9) 0 em(9) 0;
+    color: #2E3092;
+    font-size: em(25);
+    line-height: em(18);
+    font-weight: 700;
+    text-align: center;
+    border-bottom: em(1) solid rgb(177, 173, 173);
+  }
 }
 
