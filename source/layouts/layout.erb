@@ -9,8 +9,11 @@
     <!-- Use title if it's in the page YAML frontmatter -->
     <title><%= data.page.title || "moboto" %></title>
 
-    <%= stylesheet_link_tag "normalize", "all", "application" %>
+    <%= stylesheet_link_tag "normalize", "application" %>
     <%= javascript_include_tag "all" %>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css">
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
   </head>
 
   <body class="<%= page_classes %>">

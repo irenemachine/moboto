@@ -6,17 +6,40 @@
 @import url(//fonts.googleapis.com/css?family=Oxygen:400,700);
 @import url(//fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic|Amatic+SC:400,700);
 
+$light-blue: #00AEEF;
+$medium-blue: #0072BC;
+$dark-blue: #2E3092;
+
+$medium-orange: rgb(247, 230, 37);
+$dark-orange: #F7B625;
+
+$medium-grey: #d4d4d4;
+
+$neutral-bg-color: $medium-grey;
+$contrast-bg-color: $medium-blue;
+$neutral-text-color: $medium-blue;
+$accent-text-color: $dark-orange;
+$link-color: $accent-text-color;
+$link-hover-color: $medium-orange;
+
 body.index {
 
   font-family: 'Oxygen', sans-serif;
 
-  a, a:visited {
-    color: #F7B625;
+  a, a:visited, a:active {
+    color: $link-color;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: $link-hover-color;
   }
 
   header {
-    background-color: #d4d4d4;
-    border-bottom: em(2) solid rgb(177, 173, 173);
+    background-color: $neutral-bg-color;
+    background-size: cover;
+    //border-bottom: em(2) solid rgb(177, 173, 173);
+    border-top: em(5) solid $contrast-bg-color;
 
     .logo img {
       padding: em(15) 0 em(15) em(15);
@@ -24,7 +47,7 @@ body.index {
     }
 
     .info {
-      color: #2E3092;
+      color: $neutral-text-color;
       font-size: em(15);
       line-height: em(20);
       font-weight: 700;
@@ -41,19 +64,23 @@ body.index {
 
   section { @include outer-container; }
 
-  section.nav {
-    font-family: 'Josefin Slab', serif;
-    color: rgb(189, 139, 19);
-    line-height: em(35);
-    font-weight: 600;
-    text-align: center;
-    padding: em(10);
+  nav {
+    section.nav {
+      font-family: 'Josefin Slab', serif;
+      color: rgb(189, 139, 19);
+      line-height: em(35);
+      font-weight: 600;
+      text-align: center;
+    }
+    background-color: $contrast-bg-color;
+    background-size: cover;
+
   }
 
   section.content .quote {
 
     padding: em(9) 0 em(9) 0;
-    color: #2E3092;
+    color: $neutral-text-color;
     font-size: em(25);
     line-height: em(18);
     font-weight: 700;
@@ -63,12 +90,12 @@ body.index {
 }
 
 
-@include media($tablet) {
+@include media($mobile) {
 
   section.header {
 
     div.logo{
-      @include span-columns(5);
+      @include span-columns(1);
       img {
         display: block;
         margin-left: auto;
@@ -77,34 +104,63 @@ body.index {
     }
 
     div.info {
-      @include span-columns(3);
-      @include shift(1);
+      @include span-columns(1);
       text-align: center;
       padding: 0 0 em(15) 0;
     }
-
-    section.nav { font-size: em(10); }
-
   }
+
+  section.nav { display: none;}
+
 }
+
+/*@include media($tablet) {
+
+section.header {
+
+div.logo{
+@include span-columns(4);
+img {
+display: block;
+margin-left: auto;
+margin-right: auto;
+}
+}
+
+div.info {
+@include span-columns(4);
+text-align: center;
+padding: 0 0 em(15) 0;
+}
+}
+
+section.nav { display: none;}
+}*/
 
 @include media($desktop) {
   section.header {
 
     div.logo{
-      @include span-columns(2);
+      @include span-columns(6);
       img { display: inline; }
     }
 
     div.info {
-      @include span-columns(1);
+      @include span-columns(6);
       text-align: right;
       padding: em(30) em(15) 0 0;
     }
 
   }
-
   section.nav { font-size: em(25); }
+
+    h3 {
+      @include span-columns(3);
+    }
+    .schedule .sponsors .register .location {
+      @include span-columns(6);
+      overflow:scroll;
+    }
 }
 
 
