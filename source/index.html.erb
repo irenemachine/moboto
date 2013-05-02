@@ -1,161 +1,35 @@
-<fixed_content>
 <header>
-  <section class="header">
-    <div class="logo"><img src="./images/moboto.png" /></div>
-    <div class="info">CSI REGENT PARK, TORONTO<br/>JUNE 21-23, 2013<br/>REGISTRATION FEE: $150</div>
-  </section>
-</header>
-<nav>
-  <section class="nav">
-    <div id="nav" class="navbar_absolute">
+  <top-bar>
+    <section id="top-bar">
+      <div class="logo"><img src="./images/moboto.png" /></div>
+      <div class="info">CSI REGENT PARK, TORONTO<br/>JUNE 21-23, 2013<br/>REGISTRATION FEE: $150</div>
+    </section>
+  </top-bar>
+  <nav-bar>
+    <section id="navigation" class="desktop">
       <a href="#schedule">schedule</a> | <a href="#sponsors">sponsors</a> | <a href="#register">register</a> | <a href="#location">location</a>
+    </section>
+  </nav-bar>
+</header>
+
+<div class="wide-img"></div>
+
+<section id="all-content">
+
+  <% ["schedule","sponsors","register","location"].each do |name| %>
+    <a class="anchor" id="<%= name %>"></a>
+    <div class="name">
+      <h1 id = "<%= name %>" class="title desktop"><%= name %></h1>
+      <h1 id = "<%= name %>" class="title mobile"><%= name %></h1>
+      <%= partial name %>
     </div>
-  </section>
-</nav>
-</fixed_content>
-
-<div class="wide_img"></div>
-
-<section class="accordion">
-  <div class="wrapper">
-    <h1 id="schedule" class="header">SCHEDULE</h1> 
-    <div class="content">
-      <h1>Friday Kickoff</h1>
-
-      <h2>6:30 pm Registration, Dinner & Networking</h2>
-      <p>Event participants will assigned to team based on their skill sets, so each team has a variety of multi-disciplinary 
-      skills.</p>
-
-      <h2>7:00 pm Speakers</h2>
-      <p>Welcome and Speakers start during dinner. A brief walk through of the event’s agenda. Q & A. </p>
-
-      <h2>8:00 pm Mobile Movie Screening</h2>
-      <p>Previous to hosting the event, we will have a few sessions with Toronto Community Foundation participants to create 
-      their movies for this screening.</p>
-
-
-      <h1>Saturday</h1>
-
-      <h2>9:00 am Breakfast</h2>
-
-      <h2>9:30 am Teams Organize</h2>
-      <p>Each team sets up workspace for the weekend:
-      Team introductions and briefing.
-      Determine Team Roles.
-      Interview Mobile Movie Maker team participant about movie making challenges 
-      Start concepting.</p>
-
-      <h2>12:00 am Lunch</h2>
-      <p>Continue concepting.</p>
-
-      <h2>5:30 pm Pitch concept</h2>
-      <p>Each team prepares to pitch concept. Audience gives feedback on what what resonates well.<p>
-
-      <h2>6:30 pm Dinner</h2>
-      <p>Speaker, and rehash of day.</p>
-
-
-      <h1>Sunday</h1>
-
-      <h2>9:00 am Breakfast</h2>
-      <h2>9:30 am Teams Continue</h2>
-
-      <p>Interaction design mockups.  User testing.  Iterative design</p>
-      <h2>12:00 pm Lunch</h2>
-      <p>Prepare Minimal Viable Product for presentation.</p>
-
-      <h2>4:00 pm Final Presentations</h2>
-      <p>Final Presentations.</p>
-
-      <h2>6:00 pm Dinner</h2>
-      <p>Speaker, Judging & Awards. Wrap up.</p>
-
-    </div>
-  </div>
-
-  <div class="wrapper">
-    <h1 id = "sponsors" class="header">SPONSORS</h1>
-    <div class="content">
-      <h1>ThoughtWorks</h1>
-      <p>ThoughtWorks works with people and organizations who have ambitious missions - whether they are in the 
-      commercial, social or government sectors. We are experts in designing and delivering software and believe in the 
-      power of software and technology as tools for social change. Our select clients include Siemens, Nokia, UNICEF, 
-      and Democracy Now!</p>
-
-      <h1>TCF</h1>
-      <p>TCF monitors the quality of life in Toronto, identifying its strengths and weaknesses through Toronto’s Vital Signs® 
-      report. TCF provides the leadership and guidance to bring people together from all parts of our community.</p>
-
-      <h2>TIFF</h2>
-      <p>http://tiff.net/</p>
-
-      <h2>Apple Canada</h2>
-      <p>http://www.apple.com/ca/contact/</p>
-
-      <h2>Nokia</h2> 
-      <p>http://conversations.nokia.com/2013/03/11/5-mobile-movie-festivals-making-waves/</p>
-
-      <h2>Bullfrog</h2>
-      <p>http://www.bullfrogpower.com/</p>
-
-      <h2>Mountain Equipment Co.</h2>
-      <p>http://www.mec.ca</p>
-
-      <h2>Toronto Community Foundation</h2>
-      <p>www.tcf.ca</p>
-
-      <h2>Winkreative</h2>
-      <p>http://www.winkreative.com/</p>
-
-      <h2>http://www.toronto2015.org/</h2>
-
-    </div>
-  </div>
-
-  <div class="wrapper">
-    <h1 id = "register" class="header">REGISTER</h1>
-    <div class="content">
-      <p>Register today for Moboto mobile app making event. The event ticket price of 150.00 CDN includes all activities and 
-      free access to all the extra events.</p>
-      <h1>EventBrite</h1>
-    </div>
-  </div>
-
-  <div class="wrapper">
-    <h1 id = "location" class="header">LOCATION</h1>
-    <div class="content">
-
-      <p>Located at CSI Regent Park, 585 Dundas Street East, Easily accessible by TTC. The Center for Social Innovation 
-      (CSI) occupies 10,000 square feet on the 3rd floor of the new Daniels Spectrum building. Using CSI Regent Park is 
-      important to MoBoTo as it supports a developing neighborhood and a non-profit Toronto born firm leading in Social 
-      Innovation, in a sustainably built building.</p>
-
-      <h1>Accommodation</h1>
-      <p>The Delta Chelsea is located at 33 Gerrard Street West. The Delta Chelsea is located less than 800 meters from CSI 
-      Regent Park. There is a Bixibike and Toronto Transit Commission (TTC) College station subway stop nearby. 
-      The Delta Chelsea has a Green Key 4 rating. 
-      We have a special rate of 129.00 Cdn, single and double occupancy. Your room rate includes wireless internet 
-      access in guest rooms and complimentary use of the health and recreational facilities. 
-      Phone: 416-595-1975
-      Fax: 416-585-4375
-      Reservations: 800-243-5732
-      Check-in: 3:00 PM
-      Check-out: 11:00 AM
-      <p>
-
-    </div>
-  </div>
+  <% end %>
 
 </section>
-
-<section>
+ 
+<section id="footer">
   Keep in touch
   Tweets
   Email
 </section>
-
-
-
-
-
 

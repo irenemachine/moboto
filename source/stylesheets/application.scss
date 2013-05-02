@@ -1,6 +1,7 @@
 @import "bourbon/bourbon";
 @import "grid-settings";
 @import "neat/neat";
+@import "moboto";
 //@import "sassyseeds/sassyseeds";
 
 @import url(//fonts.googleapis.com/css?family=Oxygen:400,700);
@@ -23,29 +24,27 @@ $link-color: $neutral-text-color;
 $link-hover-color: $accent-text-color;
 
 body.index {
-
+  section { @include outer-container; }
   font-family: 'Oxygen', sans-serif;
-  padding-top: 100px;
 
   a, a:visited, a:active {
     color: $link-color;
     text-decoration: none;
   }
+  a:hover {  color: $link-hover-color;  }
 
-  a:hover {
-    color: $link-hover-color;
-  }
+  padding-top: 100px;
 
-  fixed_content {
-    position:fixed;
+  header {
     top:0px;
     width: 100%;
   }
 
-  header {
+  top-bar {
+    display: block;
     background-color: $neutral-bg-color;
     background-size: cover;
-
+    @include shadow;
 
     .logo img {
       padding: em(15) 0 em(15) em(15);
@@ -60,13 +59,8 @@ body.index {
     }
   }
 
-  nav {
-    background-color: $contrast-bg-color;
-    background-size: cover;
-    box-shadow: 0 8px 6px -6px rgb(87, 87, 87);
-  }
 
-  div.wide_img {
+  div.wide-img {
     min-height: em(450);
     background: url("../images/landing.jpg");
     background-repeat: no-repeat;
@@ -74,46 +68,23 @@ body.index {
     background-size: cover;
   }
 
-  section { @include outer-container; }
 
-  section.nav {
-    div#nav {
-      font-family: 'Josefin Slab', serif;
-      color: rgb(189, 139, 19);
-      line-height: em(35);
-      font-weight: 600;
-      text-align: center;
-      background-color: $contrast-bg-color;
-      background-size: cover;
+  section#all-content {
+    background: $neutral-bg-color;
+    h1.title {
+      background: $contrast-bg-color;
+      @include shadow;
     }
-
-/*
-    .navbar_fixed {
-      position:fixed;
-      top:0px;
-    }
-    .navbar_absolute {
-      top:100px;
-    }
-*/
-  }
-
-  section.content .quote {
-
-    padding: em(9) 0 em(9) 0;
-    color: $neutral-text-color;
-    font-size: em(25);
-    line-height: em(18);
-    font-weight: 700;
-    text-align: center;
-    border-bottom: em(1) solid rgb(177, 173, 173);
   }
 }
 
 
 @include media($mobile) {
+  body.index header { position: absolute; }
+  section.desktop { display: none;}
+  .desktop { display: none;}
 
-  section.header {
+  section#top-bar {
 
     div.logo{
       @include span-columns(1);
@@ -131,44 +102,19 @@ body.index {
     }
   }
 
-  section.nav { display: none;}
-
-  section.accordion {
-    h3 {
-      @include span-columns(1);
-    }
-    div {
-      @include span-columns(1);
-    }
+  section#all-content {
+    .content {  display: none;  }
+    h3 {  @include span-columns(1);  }
+    div {  @include span-columns(1);  }
+    h1.title {  margin: 15px 0 0 0;  }
   }
 }
 
-/*@include media($tablet) {
-
-section.header {
-
-div.logo{
-@include span-columns(4);
-img {
-display: block;
-margin-left: auto;
-margin-right: auto;
-}
-}
-
-div.info {
-@include span-columns(4);
-text-align: center;
-padding: 0 0 em(15) 0;
-}
-}
-
-section.nav { display: none;}
-}*/
-
 @include media($desktop) {
-  section.header {
+  header { position:fixed; }
+  .mobile { display: none;}
 
+  section#top-bar {
     div.logo{
       @include span-columns(6);
       img { display: inline; }
@@ -179,25 +125,36 @@ section.nav { display: none;}
       text-align: right;
       padding: em(20) em(15) 0 0;
     }
-
   }
-  section.accordion {
-    div.wrapper {
-      padding-top:250px;
-      margin-top:-100px;
-      -webkit-background-clip:content-box;
-      background-clip:content-box;
 
-      h1.header {
-        @include span-columns(3);
-      }
+  section#all-content {
+    a.anchor { @include nav_placement(-127px); }
 
-      div.content {
-        @include span-columns(9);
-        @include omega();
-      }
+    h1.title.desktop {
+      @include span-columns(3);
+    }
+
+    div.content {
+      @include span-columns(9);
+      @include omega();
+      display:block !important;
     }
   }
-}
 
+  nav-bar {
+    display: block;
+    background-color: $contrast-bg-color;
+    background-size: cover;
+    @include shadow;
+  }
+  section#navigation {
+    font-family: 'Josefin Slab', serif;
+    color: rgb(189, 139, 19);
+    line-height: em(35);
+    font-weight: 600;
+    text-align: center;
+    background-color: $contrast-bg-color;
+    background-size: cover;
+  }
+}
 

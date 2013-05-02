@@ -1,0 +1,10 @@
+@mixin nav_placement( $go_to ) {
+  display: inline-block;
+  position: relative;
+  visibility: hidden;
+  top: $go_to;
+}
+
+@mixin shadow {
+ box-shadow: 0 8px 6px -6px rgb(87, 87, 87);
+}
